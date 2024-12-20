@@ -146,8 +146,9 @@ DELETE http://localhost:4001/api/anime/22
   "success": true
 }
 ```
+---
 
-### 1. Obtener todos los animes
+### 5. Obtener todos los animes
 **GET** `/characters`
 
 #### Descripción
