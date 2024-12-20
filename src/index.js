@@ -42,7 +42,7 @@ api.listen(port, () => {
 */
 
 
-//Leer-Listar todas las entradas existentes
+//Leer-Listar todas las entradas existentes--animes
 api.get("/api/anime", async (req, res) => {
     const connection = await getDBConnection();
     const query = "SELECT * FROM anime";
@@ -55,7 +55,7 @@ api.get("/api/anime", async (req, res) => {
     })
 });
 
-
+//Leer-Listar todas las entradas existentes--personajes
 api.get("/api/characters", async (req, res) => {
     const connection = await getDBConnection();
     const query = "SELECT * FROM characters";
