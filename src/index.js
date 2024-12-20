@@ -55,6 +55,20 @@ api.get("/api/anime", async (req, res) => {
     })
 });
 
+
+api.get("/api/characters", async (req, res) => {
+    const connection = await getDBConnection();
+    const query = "SELECT * FROM characters";
+    const [result] = await connection.query(query); //await perque la funcio es asincrona
+    //console.log(result);
+    connection.end();
+    res.status(200).json({
+        info: { count: result.length },
+        results: result
+    })
+});
+
+
 // Eliminar un personaje 
 api.delete("/api/anime/:id", async (req, res) => {
     const connection = await getDBConnection();
