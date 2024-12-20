@@ -53,7 +53,7 @@ api.get("/api/anime", async (req, res) => {
     })
 });
 
-// Eliminar una entrada existente
+// Eliminar un personaje 
 api.delete("/api/anime/:id", async (req, res) => {
     const connection = await getDBConnection();
     const query = "DELETE from anime_madcloser.characters WHERE id = ?";
@@ -62,15 +62,31 @@ api.delete("/api/anime/:id", async (req, res) => {
     res.status(200).json({ success: true });
 });
 
-/*/Insertar una entrada en su entidad principal
-api.post("/api/newanime", async (req, res) => {
-    console.log(req.body);
-    
-    res.json({});
-}); 
-*/
+//Insertar una entrada en su entidad principal
+api.post("/api/anime", async (req, res) => {
+    //console.log(req.body);
+    const { name, type, chapters } = req.body;
+    // si frontend no me envía los datos, le lanzo un error
+    if (!type || !chapters || !name) {
+        res.status(400).json({
+            success: false,
+            message: "Missing fields"
+        })
+    } else {
+        const connection = await getDBConnection();
+        const query = "INSERT INTO anime(name, type, chapters ) VALUES (?, ?, ?)";
+        const [result] = await connection.query(query, [name, type, chapters]);
+        //console.log(result);
+        connection.end();
+        res.status(201).json({
+            success: true,
+            id: result.insertId
+        });
+    }
+}) 
 
-/*/Actualizar una entrada existente
+
+//Actualizar una entrada existente
 
 api.put("/api/anime/:id", async (req, res) => {
     const id = req.params.id;
