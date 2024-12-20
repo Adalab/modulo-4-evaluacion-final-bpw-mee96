@@ -62,7 +62,7 @@ api.delete("/api/anime/:id", async (req, res) => {
     res.status(200).json({ success: true });
 });
 
-//Insertar una entrada en su entidad principal
+//Insertar una entrada en la entidad principal
 api.post("/api/anime", async (req, res) => {
     //console.log(req.body);
     const { name, type, chapters } = req.body;
@@ -74,7 +74,7 @@ api.post("/api/anime", async (req, res) => {
         })
     } else {
         const connection = await getDBConnection();
-        const query = "INSERT INTO anime(name, type, chapters ) VALUES (?, ?, ?)";
+        const query = "INSERT INTO anime_madcloser.anime(name, type, chapters ) VALUES (?, ?, ?)";
         const [result] = await connection.query(query, [name, type, chapters]);
         //console.log(result);
         connection.end();
@@ -93,7 +93,7 @@ api.put("/api/anime/:id", async (req, res) => {
     const { name, type, chapters } = req.body;
 
     const connection = await getDBConnection();
-    const query = "UPDATE anime SET name = ?, type = ?, chapters = ? WHERE id = ?";
+    const query = "UPDATE anime_madcloser.anime SET name = ?, type = ?, chapters = ? WHERE id = ?";
     const [result] = await connection.query(query, [
         name, type, chapters, id
     ]);
