@@ -58,3 +58,4 @@ SELECT * FROM anime
 
 DELETE from anime_madcloser.characters WHERE id = 2 //borra el anime allotjat al id 2
 
+UPDATE anime_madcloser.anime SET name = 'jjk', type = 'accio', chapters = 1 WHERE id = 1
