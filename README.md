@@ -147,7 +147,19 @@ DELETE http://localhost:4001/api/anime/22
 }
 ```
 
+### 1. Obtener todos los animes
+**GET** `/characters`
+
+#### Descripción
+Obtiene una lista de todos los personajes registrados en la base de datos.
+
+#### Ejemplo de solicitud:
+```bash
+GET http://localhost:4001/api/characters
+```
 ---
+
+
 
 ## Errores comunes
 
