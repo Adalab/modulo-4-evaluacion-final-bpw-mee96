@@ -24,17 +24,19 @@ async function getDBConnection() {
 }
 
 
-//escuchar el puerto
+//escoltar el port
 const port = 4001;
 api.listen(port, () => {
     console.log(`Server is running. Go to http://localhost:${port}`); //para saber si se levanta bien
 })
 
+
+
         // endpoints //
 
 /*
-    - conectar a la DB
-    - consulta a la base de datos para obtener todos los animes --> SELECT
+    - conectar  la DB
+    - consulta  la base de dates per obtindre tots els animes
     - cerrar la conexión
     - enviar respuesta a frontend
 */
