@@ -1,7 +1,7 @@
 ![Gif de ejemplo](https://www.icegif.com/wp-content/uploads/2023/01/icegif-1823.gif)
 
 
-# API Anime Documentation
+# API Anime 
 
 ## Descripción
 Este API permite gestionar una base de datos de animes y personajes, permitiendo realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) en las entidades `anime` y `characters`.
